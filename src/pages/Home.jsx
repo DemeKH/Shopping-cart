@@ -2,21 +2,21 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="relative h-screen overflow-hidden">
-      <img
-        src="src/assets/astronaut-tiger.jpeg"
+    <div
+      className="relative h-screen overflow-hidden bg-center bg-cover
+     bg-[url('src/assets/elden.jpg')]"
+    >
+      {/* <img
+        src="src/assets/elden.jpg"
         alt="Full Screen"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: "blur(2.5px)" }}
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-10" />
-      <div className="flex flex-col items-center justify-center h-full">
-        <h1 className="text-white text-4xl absolute top-0 m-4 z-50">
-          Pixel Realm
-        </h1>
+        className="absolute inset-0 w-full h-full object-cover z-"
+      /> */}
+      <div className="absolute inset-0 bg-black bg-opacity-10 " />
+      <div className="font-mono flex flex-row items-center justify-center h-full p-10 mt-40 gap-4">
+        <h1 className="text-[#ffffff] text-4xl m-4 ">Pixel Realm</h1>
         <Link
           to="/shop"
-          className="text-3xl text-white border border-black p-2 rounded-lg m-3 cursor-pointer z-50"
+          className="text-white text-3xl border border-[#002d2c] rounded-xl cursor-pointer z-10 p-3"
         >
           Shop Now
         </Link>
