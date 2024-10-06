@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ItemsDisplay from "../components/ItemsDisplay";
 
 const Home = () => {
   const [products, setproducts] = useState([]);
@@ -49,49 +50,17 @@ const Home = () => {
         <p className="text-2xl m-3">Premium clothes at affordable Prices!</p>
         <Link
           to="/shop"
-          className="border border-black hover:bg-black hover:text-white ease-in-out duration-200 rounded-lg p-3 m-2 text-xl"
+          className="border border-black hover:bg-black hover:text-white ease-in-out duration-200 rounded-lg p-4 mt-6 text-2xl"
         >
           Shop Now
         </Link>
       </div>
 
-      <div className="p-10 flex flex-row justify-between align-center">
-        <div className="">
-          <h2>Electronics</h2>
-          {products
-            .filter((product) => product.category === "electronics") // Filter electronics
-            .slice(0, 4) // Take only the first 4
-            .map((product) => (
-              <img src={product.image} key={product.id} className="w-32 h-36" />
-            ))}
-        </div>
-        <div>
-          <h2>Men&apos;s Clothing</h2>
-          {products
-            .filter((product) => product.category === "men's clothing") // Filter electronics
-            .slice(0, 4) // Take only the first 4
-            .map((product) => (
-              <img src={product.image} key={product.id} className="w-32 h-36" />
-            ))}
-        </div>
-        <div className="flex flex-col justify-center">
-          <h2 className="">Women&apos;s Clothing</h2>
-          {products
-            .filter((product) => product.category === "women's clothing") // Filter electronics
-            .slice(0, 4) // Take only the first 4
-            .map((product) => (
-              <img src={product.image} key={product.id} className="w-32 h-36" />
-            ))}
-        </div>
-        <div>
-          <h2>Jewelery</h2>
-          {products
-            .filter((product) => product.category === "jewelery") // Filter electronics
-            .slice(0, 4) // Take only the first 4
-            .map((product) => (
-              <img src={product.image} key={product.id} className="w-32 h-36" />
-            ))}
-        </div>
+      <div className="pr-10 pl-10 flex flex-row justify-between align-center">
+        <ItemsDisplay category="electronics" products={products} />
+        <ItemsDisplay category="men's clothing" products={products} />
+        <ItemsDisplay category="women's clothing" products={products} />
+        <ItemsDisplay category="jewelery" products={products} />
       </div>
     </div>
   );
