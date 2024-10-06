@@ -2,22 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ItemsDisplay from "../components/ItemsDisplay";
 
-const Home = () => {
-  const [products, setproducts] = useState([]);
+const Home = ({ products }) => {
   const [carouselIndex, setCarouselIndex] = useState(1);
-
-  useEffect(() => {
-    async function fetchClothes() {
-      try {
-        const res = await fetch("https://fakestoreapi.com/products?limit=20");
-        const data = await res.json();
-        data.map((elem) => setproducts((prev) => [...prev, elem]));
-      } catch {
-        alert("there was an error");
-      }
-    }
-    fetchClothes();
-  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,7 +19,7 @@ const Home = () => {
 
   return (
     <div className="">
-      <div className="flex justify-center items-center gap-10 sm:gap-32 p-5 m-5">
+      <div className="flex justify-center items-center gap-4 sm:gap-32 p-5 m-5">
         {products.map((elem, index) => {
           if (index === carouselIndex) {
             return (
@@ -47,7 +33,7 @@ const Home = () => {
         })}
       </div>
       <div className="flex flex-col items-center m-5 p-3">
-        <p className="text-2xl m-3">Premium clothes at affordable Prices!</p>
+        <p className="text-2xl m-3">Premium products at affordable Prices!</p>
         <Link
           to="/shop"
           className="border border-black hover:bg-black hover:text-white ease-in-out duration-200 rounded-lg p-4 mt-6 text-2xl"
@@ -56,7 +42,7 @@ const Home = () => {
         </Link>
       </div>
 
-      <div className="pr-10 pl-10 flex flex-row justify-between align-center">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-5 justify-items-center align-center">
         <ItemsDisplay category="electronics" products={products} />
         <ItemsDisplay category="men's clothing" products={products} />
         <ItemsDisplay category="women's clothing" products={products} />

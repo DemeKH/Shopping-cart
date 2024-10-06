@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ addedToCart }) => {
   return (
     <header className="flex justify-between items-center p-5">
       <div className="flex items-center gap-8">
-        <h1 className="hover:tracking-wide ease-in duration-300 text-4xl text-blue-700">
+        <h1 className="hover:tracking-wide ease-in duration-300 text-2xl text-blue-700 sm:text-3xl md:text-4xl">
           Frosted Soul
         </h1>
-        <Link to="/" className="hover:scale-110 ease-in duration-300">
+        <Link
+          to="/"
+          className="hover:scale-110 ease-in duration-300 text-sm sm:text-base md:text-lg"
+        >
           Home
         </Link>
-        <Link to="/shop" className="hover:scale-110 ease-in duration-300">
+        <Link
+          to="/shop"
+          className="hover:scale-110 ease-in duration-300 text-sm sm:text-base md:text-lg"
+        >
           Shop
         </Link>
       </div>
@@ -19,6 +25,9 @@ const Header = () => {
         alt="shopping cart"
         className="size-8 cursor-pointer"
       ></img>
+      <p className="rounded-full bg-blue-700 font-bold text-white text-xs pr-1 pl-1 absolute right-5 top-10">
+        {addedToCart.length > 0 && addedToCart.length}
+      </p>
     </header>
   );
 };
