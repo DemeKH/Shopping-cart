@@ -2,7 +2,7 @@ const ItemsDisplay = ({ category, products }) => {
   return (
     <div className="text-center">
       <h2 className="p-2 w-full">{category.toUpperCase()}</h2>
-      <div className="grid grid-cols-2 justify-items-center gap-y-1">
+      <div className="grid grid-cols-2 justify-items-center gap-y-1 lg:gap-3">
         {products
           .filter((product) => product.category == category)
           .slice(0, 4)
