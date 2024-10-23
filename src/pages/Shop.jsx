@@ -14,7 +14,11 @@ const Shop = ({ setCategory, products, category, addToCart }) => {
             ? products
                 .filter((product) => product.category == category)
                 .map((product) => (
-                  <ItemCard product={product} key={product.id} />
+                  <ItemCard
+                    product={product}
+                    key={product.id}
+                    addToCart={addToCart}
+                  />
                 ))
             : products.map((product) => (
                 <ItemCard
