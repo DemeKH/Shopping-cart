@@ -11,7 +11,7 @@ function App() {
   const [addedToCart, setAddedToCart] = useState([]);
 
   function addToCart(product) {
-    if (addedToCart.includes(product)) {
+    if (addedToCart.some((item) => item.id === product.id)) {
     } else {
       setAddedToCart((prev) => [...prev, { ...product, quantity: 1 }]);
     }
